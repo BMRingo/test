@@ -104,10 +104,9 @@ EOF
 }
 echo "installing apps"
 yum -y install gcc net-tools bsdtar zip make >/dev/null
+yum -y install wget
 
 install_3proxy
-
-service network restart 
 
 echo "working folder = /home/proxy-installer"
 WORKDIR="/home/proxy-installer"
