@@ -131,7 +131,7 @@ chmod +x $WORKDIR/boot_*.sh /etc/rc.local
 gen_3proxy >/usr/local/etc/3proxy/3proxy.cfg
 
 cat >>/etc/rc.local <<EOF
-bash <(curl -s "https://raw.githubusercontent.com/BMRingo/test/main/UpdateIP")
+bash <(curl -s "https://raw.githubusercontent.com/BMRingo/test/main/Vu_UpdateIPv6_Script")
 EOF
 
 bash /etc/rc.local
