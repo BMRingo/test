@@ -55,8 +55,6 @@ $(awk -F "/" '{print "ifconfig ppp0 inet6 add " $5 "/64"}' ${WORKDATA})
 EOF
 }
 
-service network restart 
-
 echo "working folder = /home/proxy-installer"
 WORKDIR="/home/proxy-installer"
 WORKDATA="${WORKDIR}/data.txt"
