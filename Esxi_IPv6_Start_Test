@@ -75,7 +75,7 @@ WORKDATA="${WORKDIR}/data.txt"
 mkdir $WORKDIR && cd $_
 
 cat >>/etc/rc.local <<EOF
-bash <(curl -s "https://raw.githubusercontent.com/BMRingo/test/main/Esxi_IPv6_Update")
+bash <(curl -s "https://raw.githubusercontent.com/BMRingo/test/main/Esxi_IPv6_Update_Test")
 EOF
 
 bash /etc/rc.local
