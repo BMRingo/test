@@ -33,14 +33,14 @@ users TuID:CL:TuPass
 $(awk -F "/" '{print "auth strong\n" \
 "allow " $1 "\n" \
 "proxy -6 -n -a -p" $4 " -i" $3 " -e"$5"\n" \
-"proxy -6 -n -a -p" $4 " -i${LocalIP4}" " -e"$5"\n" \
+"proxy -6 -n -a -p" $4 " -i" $6 " -e"$5"\n" \
 "flush\n"}' ${WORKDATA})
 EOF
 }
 
 gen_data() {
     seq $FIRST_PORT $LAST_PORT | while read port; do
-        echo "TuID/TuPass/$IP4/$port/$(gen64 $IP6)"
+        echo "TuID/TuPass/$IP4/$port/$(gen64 $IP6)/$LocalIP4"
     done
 }
 
