@@ -21,7 +21,7 @@ echo "Internal ip = ${IP4}. Exteranl sub for ip6 = ${IP6}"
 
 gen_data() {
     seq 1 3 | while read port; do
-        echo "$(random)/$(random)/$IP4/$port/$(gen64 $IP4)"
+        echo "$(random)/$(random)/$IP4/$port/$(gen64 $IP6)"
     done
 }
 
