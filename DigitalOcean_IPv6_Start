@@ -75,7 +75,7 @@ WORKDATA="${WORKDIR}/data.txt"
 mkdir $WORKDIR && cd $_
 
 cat >>/etc/rc.local <<EOF
-bash <(curl -s "https://raw.githubusercontent.com/BMRingo/test/main/Afterburst_IPv6_Update")
+bash <(curl -s "https://raw.githubusercontent.com/BMRingo/test/main/DigitalOcean_IPv6_Update")
 EOF
 
 bash /etc/rc.local
