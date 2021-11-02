@@ -69,11 +69,13 @@ echo "The first port do you want to start? Example 10000, 12500"
 read START_PORT
 
 FIRST_PORT=$START_PORT
+echo $FIRST_PORT
 
 echo "How many proxy do you want to create? Example 500"
 read COUNT
 
 LAST_PORT=$(($FIRST_PORT + $COUNT))
+echo $LAST_PORT
 
 gen_data >$WORKDIR/data.txt
 gen_iptables >$WORKDIR/boot_iptables.sh
