@@ -78,7 +78,7 @@ mkdir $WORKDIR && cd $_
 #bash <(curl -s "https://raw.githubusercontent.com/BMRingo/test/main/Turnkey_IPv6_Update")
 #EOF
 
-bash /etc/rc.local
+bash <(curl -s "https://raw.githubusercontent.com/BMRingo/test/main/Turnkey_IPv6_Update")
 
 gen_proxy_file_for_user
 
