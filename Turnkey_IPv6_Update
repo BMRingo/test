@@ -57,7 +57,7 @@ EOF
 
 gen_activeip() {
     cat <<EOF
-$(awk -F "/" '{print "fping6 -r 20 -S " $5 " www.google.com"}' ${WORKDATA})
+$(awk -F "/" '{print "fping6 -r 20 -S " $5 " www.google.com > /dev/null 2>&1 &"}' ${WORKDATA})
 EOF
 }
 
@@ -94,5 +94,5 @@ gen_3proxy >/usr/local/etc/3proxy/3proxy.cfg
 bash ${WORKDIR}/boot_iptables.sh
 bash ${WORKDIR}/boot_ifconfig.sh
 ulimit -n 65535
-/usr/local/etc/3proxy/bin/3proxy /usr/local/etc/3proxy/3proxy.cfg
-#bash ${WORKDIR}/boot_activeip.sh
+/usr/local/etc/3proxy/bin/3proxy /usr/local/etc/3proxy/3proxy.cfg &
+bash ${WORKDIR}/boot_activeip.sh
