@@ -57,18 +57,8 @@ EOF
 
 gen_activeip() {
     cat <<EOF
-$(awk -F "/" '{print "ping -6 -I " $5 " www.google.com"}' ${WORKDATA})
+$(awk -F "/" '{print "fping6 -r 20 -S " $5 " www.google.com &"}' ${WORKDATA})
 EOF
-}
-
-gen_activeip() {
-    cat <<EOF
-$(awk -F "/" '{print $5}' ${WORKDATA})
-EOF
-}
-
-activeip() {
-    while ! ping -c1 HOSTNAME &>/dev/null; do echo "Ping Fail - `date`"; done ; echo "Host Found - `date`" ; /root/scripts/test1.sh
 }
 
 echo "working folder = /home/proxy-installer"
@@ -96,7 +86,7 @@ echo $LAST_PORT
 gen_data >$WORKDIR/data.txt
 gen_iptables >$WORKDIR/boot_iptables.sh
 gen_ifconfig >$WORKDIR/boot_ifconfig.sh
-gen_activeip >$WORKDIR/boot_activeip.sh
+gen_activeip >$WORKDIR/boot_activeip.txt
 chmod +x $WORKDIR/boot_*.sh /etc/rc.local
 
 gen_3proxy >/usr/local/etc/3proxy/3proxy.cfg
@@ -105,3 +95,4 @@ bash ${WORKDIR}/boot_iptables.sh
 bash ${WORKDIR}/boot_ifconfig.sh
 ulimit -n 65535
 /usr/local/etc/3proxy/bin/3proxy /usr/local/etc/3proxy/3proxy.cfg &
+bash ${WORKDIR}/boot_activeip.sh
