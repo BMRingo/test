@@ -57,7 +57,7 @@ EOF
 
 gen_activeip() {
     cat <<EOF
-$(awk -F "/" '{print "fping6 -r 20 -S " $5 " www.google.com > /dev/null 2>&1 &"}' ${WORKDATA})
+$(awk -F "/" '{print "fping6 -r 20 -S " $5 " www.google.com"}' ${WORKDATA})
 EOF
 }
 
